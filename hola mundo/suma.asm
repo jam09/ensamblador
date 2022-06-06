@@ -6,9 +6,11 @@
 .DATA
     N1 DB 0                 ; VARIABLE PARA ENTRADA 1
     N2 DB 0                 ; VARIABLE PARA ENTRADA 2
+    N4 DB 0                 ; VARIABLE PARA ENTRADA 3
     N3 DB 0                 ; VARIABLE PARA RESULTADO
     M1 DB 10,13,' First Number  : $'    ; VARIABLE DE MENSAJE 1
     M2 DB 10,13,' Secund Number : $'    ; VARIABLE DE MENSAJE 2
+    M4 DB 10,13,' tercer  Number : $'    ; VARIABLE DE MENSAJE 2
     M3 DB 10,13,' Result        : $'    ; VARIABLE DE MENSAJE RESULTADO
 .CODE
 MAIN:
@@ -30,11 +32,22 @@ MAIN:
     INT 21H
     SUB AL, 30H
     MOV N2, AL
+
+    MOV AH, 9               ; SERVICIO DE IMPRESION
+    LEA DX, M4              ; OBTIENE LA DIRECCION DE M1
+    INT 21H                 ; INTERRUPCION 21H
+    MOV AH, 1               ; SERVICIO DE ENTRADA
+    INT 21H                 ; INTERRUPCION 21H
+    SUB AL, 30H             ; RESTAR 30H/48D 
+    MOV N4, AL              ; MOVER ENTRADA A LA VARIABLE N1
     
     MOV AL, N1              ; MOV VARIABLE N1 A AL
-    ADD AL, N2              ; SUMAR N1 Y N2
+    ADD AL, N2
+    ADD AL, N4              ; SUMAR N1 Y N2
     ADD AL, 30H             ; SUMAR RESULTADO CON 30H/48D
     MOV N3, AL              ; MOVER RESULTADO A N3
+
+   
 
     MOV AH, 9
     LEA DX, M3

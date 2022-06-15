@@ -1,4 +1,4 @@
-by javier trejo
+
 .model small
 .stack 
 

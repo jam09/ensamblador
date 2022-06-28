@@ -4,7 +4,10 @@
  #binario en decimal.
  #(a) 12 = 8 + 4 = 23 + 22    1 1 0 0
 
-def d_ecimal(i):
+from msilib.schema import Binary
+
+
+def d_decimal(i):
 
      i = list(i)
      i.reverse()#contenedor de varible
@@ -13,7 +16,17 @@ def d_ecimal(i):
         decimal += int(L[i]) * 2 ** i #funcion de multiplicacion de decimal
      return decimal 
 
-     print(d_ecimal('1010'))
+def b_binario(i):
+    binario = []
+    while i > 0:
+        binary.append(str (i % 2))
+        i //= 2
+    binary.reverse()
+    return ''.join(binary)
+
+    print(d)    
+
+    
 
        
 

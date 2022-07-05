@@ -1,40 +1,26 @@
-#Escribir una función que convierta un 
-#número decimal en binario 
-#y otra que convierta un número
- #binario en decimal.
- #(a) 12 = 8 + 4 = 23 + 22    1 1 0 0
+from tkinter import *
 
-from msilib.schema import Binary
+ventana= Tk()
+ventana.title("Suma de numeros")
+ventana.geometry("400x400")
 
 
-def d_decimal(i):
+def sumar():
+    primero = int(caja1.get())
+    segundo = int(caja2.get())
+    sumar = (primero + segundo) 
+    return variable1.set(sumar)
+    suma()
+variable1=StringVar()
+etiqueta1=Label(ventana, text="suma del primer numero")
+caja1=Entry(ventana, text="primer  numero")
+caja2=Entry(ventana,text=" Segundo numero")
+boton1=Button(ventana,text="SUMAR",command=sumar)
+caja3=Entry(ventana,textvariable=variable1)
 
-     i = list(i)
-     i.reverse()#contenedor de varible
-     decimal = 0 #el decimal debe estar en cero 
-     for i in range(len (i)):
-        decimal += int(L[i]) * 2 ** i #funcion de multiplicacion de decimal
-     return decimal 
-
-def b_binario(i):
-    binario = []
-    while i > 0:
-        binary.append(str (i % 2))
-        i //= 2
-    binary.reverse()
-    return ''.join(binary)
-
-    print(d)    
-
-    
-
-       
-
-
-
-
-
-
-
-
-
+etiqueta1.pack()
+caja1.pack()
+caja2.pack()
+boton1.pack()
+caja3.pack()
+ventana.mainloop()
